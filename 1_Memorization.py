@@ -39,15 +39,15 @@ if __name__ == "__main__":
     ENTRADAS vetor, e k somas
     """
     
-    vetor = [1, 2, 3, 7]
-    k = 7
+    vetor = [1, 2, 3, 4, 30]
+    k = 6
     
     V = []
     for i in range(1, k+1):
         V = V + vetor
     print(V)
     
-    for i in range(1, max(V)*k + 2):
+    for i in range(1, max(V)*k + 1):
         if isSubsetSum(V, i, k):
             print("{} Sim".format(i))
         else:

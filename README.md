@@ -6,4 +6,6 @@ A soma de minkowski é tal que sendo dois conjuntos A e B, temos que A + B = {a 
 
 A + A + A + A = O(|A|^4)
 
-OBS.: Para valores k muito grandes, o algoritmo é lento
+OBS.: 
+- Para valores k muito grandes, o algoritmo do arquivo 1_Memorization é muito lento (k = 6)
+- Provavelmente haverá 3 iterações aninhadas para Tabulação e para Espaço Otimizado de dp
