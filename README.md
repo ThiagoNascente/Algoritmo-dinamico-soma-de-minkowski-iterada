@@ -5,3 +5,5 @@ A soma de minkowski é tal que sendo dois conjuntos A e B, temos que A + B = {a 
 É nítido que pela definição, a complexidade da soma é de n^m, onde n é o número de elementos do conjunto e m é o número de fatores.
 
 A + A + A + A = O(|A|^4)
+
+OBS.: Para valores k muito grandes, o algoritmo é lento

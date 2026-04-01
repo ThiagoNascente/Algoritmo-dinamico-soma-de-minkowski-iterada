@@ -39,8 +39,8 @@ if __name__ == "__main__":
     ENTRADAS vetor, e k somas
     """
     
-    vetor = [1, 2, 7]
-    k = 3
+    vetor = [1, 2, 3, 7]
+    k = 7
     
     V = []
     for i in range(1, k+1):
@@ -54,7 +54,6 @@ if __name__ == "__main__":
             print("{} ---".format(i))
     
 # fonte: https://www.geeksforgeeks.org/dsa/subset-sum-problem-dp-25/
-# para caso geral
 # complexidade da fonte: O(sum*n)
 # buscar complexidade da tentativa: O(sum*n)
 # Espaco da tentativa: O(sum*n)
