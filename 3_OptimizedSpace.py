@@ -1,23 +1,29 @@
 def isSubsetSum(vetor, k):
     n = len(vetor)
     sum = max(vetor) * k
-    dp = [[False] * (sum + 1) for _ in range(k)]
+    prev = [False] * (sum + 1)
+    curr = [False] * (sum + 1)
+    aux = [False] * (sum + 1)
     
     for i in range(sum + 1):
         if i in vetor:
-            dp[0][i] = True
+            prev[i] = True
+            
+    print(prev)
     for z in range(1, k):
         for i in range(0, n):
             for j in range(1, sum + 1):
-                if dp[z-1][j] == True:
-                    dp[z][j+vetor[i-1]] = True
-    return dp
+                if prev[j] == True:
+                    curr[j+vetor[i]] = True
+        prev = curr.copy()
+        curr = aux.copy()
+    return prev
 
 
 if __name__ == "__main__":
-    V = [1,2,3,4,70]
+    V = [1,3,7]
     k = 3
     res = isSubsetSum(V, k)
     for i in range(max(V) * k + 1):
-        if res[k-1][i] == True:
+        if res[i] == True:
             print('{}'.format(i))

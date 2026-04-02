@@ -10,12 +10,12 @@ def isSubsetSum(vetor, k):
         for i in range(0, n):
             for j in range(1, sum + 1):
                 if dp[z-1][j] == True:
-                    dp[z][j+vetor[i-1]] = True
+                    dp[z][j+vetor[i]] = True
     return dp
 
 
 if __name__ == "__main__":
-    V = [1,2,3,4,70]
+    V = [1,3,7]
     k = 3
     res = isSubsetSum(V, k)
     for i in range(max(V) * k + 1):

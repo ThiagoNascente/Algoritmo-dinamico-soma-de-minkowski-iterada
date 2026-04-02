@@ -8,4 +8,4 @@ A + A + A + A = O(|A|^4)
 
 OBS.: 
 - Para valores k muito grandes, o algoritmo do arquivo 1_Memorization é muito lento (k = 6)
-- Provavelmente haverá 3 iterações aninhadas para Tabulação e para Espaço Otimizado de dp
+- Agora para o 2_Tabulation e 3_OptimizedSpace é rápido a operação
