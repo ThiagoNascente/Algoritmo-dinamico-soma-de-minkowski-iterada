@@ -8,4 +8,6 @@ A + A + A + A = O(|A|^4)
 
 OBS.: 
 - Para valores k muito grandes, o algoritmo do arquivo 1_Memorization é muito lento (k = 6)
-- Agora para o 2_Tabulation e 3_OptimizedSpace é rápido a operação
+- É rápido quando operado em 2_Tabulation ou em 3_OptimizedSpace
+
+Ref.: https://www.geeksforgeeks.org/dsa/subset-sum-problem-dp-25/

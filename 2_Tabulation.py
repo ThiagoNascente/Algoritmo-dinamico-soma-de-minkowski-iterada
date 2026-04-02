@@ -1,3 +1,5 @@
+# DP para soma de minkowski iterada, modelo 2
+
 def isSubsetSum(vetor, k):
     n = len(vetor)
     sum = max(vetor) * k
@@ -21,3 +23,7 @@ if __name__ == "__main__":
     for i in range(max(V) * k + 1):
         if res[k-1][i] == True:
             print('{}'.format(i))
+            
+# buscar complexidade da op: O(maxV*k*n)
+# Espaco da tentativa (dp): O(maxV*k*k)
+# Sem recursao

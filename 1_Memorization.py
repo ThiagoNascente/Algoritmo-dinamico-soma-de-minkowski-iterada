@@ -1,30 +1,22 @@
-# Uma implementacao python para o problema subsetsum
-# usando recursao e memorizacao
+# DP para soma de minkowski iterada, modelo 1
 
 def isSubsetSumRec(vetor, n, sum, k, pk, memo):
-    # Recebe vetor, o tamanho do vetor, a soma e a quantidade de valores do vetor que podem ser considerados...
     # casos base e de parada
     
     if sum == 0 and pk == k:
         return True
-    
     if n <= 0:
         return False
-    
     if k == pk:
         return False
-    
     if memo[pk][sum] != -1:
         return memo[pk][sum]
-
     if vetor[n - 1] > sum:
         memo[k][sum] = isSubsetSumRec(vetor, n - 1, sum, k, pk, memo)
     else:
         memo[k][sum] = (isSubsetSumRec(vetor, n - 1, sum, k, pk, memo) or 
                 isSubsetSumRec(vetor, n - 1, sum - vetor[n - 1], k, pk+1, memo))
-
     return memo[k][sum]
-
 
 def isSubsetSum(vetor, sum, k):
     n = len(vetor)
@@ -35,11 +27,7 @@ def isSubsetSum(vetor, sum, k):
 
 if __name__ == "__main__":
     
-    """
-    ENTRADAS vetor, e k somas
-    """
-    
-    vetor = [1, 2, 7]
+    vetor = [1, 3, 7]
     k = 3
     
     V = []
@@ -49,15 +37,9 @@ if __name__ == "__main__":
     
     for i in range(1, max(V)*k + 1):
         if isSubsetSum(V, i, k):
-            print("{} Sim".format(i))
-        else:
-            print("{} ---".format(i))
-    
-# fonte: https://www.geeksforgeeks.org/dsa/subset-sum-problem-dp-25/
-# complexidade da fonte: O(sum*n)
-# buscar complexidade da tentativa: O(sum*n)
-# Espaco da tentativa: O(sum*n)
+            print("{}".format(i))
 
-"""
-Constroe-se a tabela sum * k 
-"""
+    
+# buscar complexidade da op: O(maxV*k*n)
+# Espaco da tentativa: O(maxV*k*k)
+# Recursivo
