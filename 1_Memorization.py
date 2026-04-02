@@ -41,5 +41,5 @@ if __name__ == "__main__":
 
     
 # Complexidade da op: O(maxV*k*k*n)
-# Espaco da tentativa: O(maxV*k*k)
+# Espaco ocupado: O(maxV*k*k)
 # Recursivo

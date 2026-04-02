@@ -32,5 +32,5 @@ if __name__ == "__main__":
             print('{}'.format(i))
             
 # Complexidade da op: O(maxV*k*k*n)
-# Espaco da tentativa (dp): O(maxV*k)
+# Espaco ocupado (dp): O(maxV*k)
 # Sem recursao
