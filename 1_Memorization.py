@@ -40,6 +40,6 @@ if __name__ == "__main__":
             print("{}".format(i))
 
     
-# buscar complexidade da op: O(maxV*k*n)
+# Complexidade da op: O(maxV*k*k*n)
 # Espaco da tentativa: O(maxV*k*k)
 # Recursivo

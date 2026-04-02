@@ -24,6 +24,6 @@ if __name__ == "__main__":
         if res[k-1][i] == True:
             print('{}'.format(i))
             
-# buscar complexidade da op: O(maxV*k*n)
+# buscar complexidade da op: O(maxV*k*k*n)
 # Espaco da tentativa (dp): O(maxV*k*k)
 # Sem recursao
