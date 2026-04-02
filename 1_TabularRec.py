@@ -1,27 +1,27 @@
 # DP para soma de minkowski iterada, modelo 1
 
-memo = []
+dp = []
 
-def MinkowskiSumRec(vetor, sum, k, pk):
+def Rec(vetor, sum, k, pk):
     # casos base e de parada
     if k > pk:
         for j in range(sum+1):
-            if memo[pk-1][j] == True:
+            if dp[pk-1][j] == True:
                 for i in vetor:
-                    memo[pk][i + j] = True
-        MinkowskiSumRec(vetor, sum, k, pk+1)
+                    dp[pk][i + j] = True
+        Rec(vetor, sum, k, pk+1)
     
 
-def MinkowskiSum(vetor, k):
-    global memo
+def IteratedMinkowskiSum(vetor, k):
+    global dp
     sum = k * max(vetor)
-    memo = [[-1 for _ in range(sum + 1)] for _ in range(k)]
+    dp = [[-1 for _ in range(sum + 1)] for _ in range(k)]
     
     for i in vetor:
-        memo[0][i] = True
+        dp[0][i] = True
     if sum > max(vetor) * k:
         return
-    MinkowskiSumRec(vetor, sum, k, 1)
+    Rec(vetor, sum, k, 1)
 
 
 if __name__ == "__main__":
@@ -31,9 +31,9 @@ if __name__ == "__main__":
     print('V = {}'.format(V))
     print('k = {}'.format(k))
 
-    MinkowskiSum(V, k)
+    IteratedMinkowskiSum(V, k)
     for i in range(max(V) * k + 1):
-        if memo[k-1][i] == True:
+        if dp[k-1][i] == True:
             print('{}'.format(i))
 
 

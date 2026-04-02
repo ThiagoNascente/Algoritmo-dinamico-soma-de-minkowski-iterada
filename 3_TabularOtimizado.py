@@ -1,6 +1,6 @@
 # DP para soma de minkowski iterada, modelo 3
 
-def MinkowskiSum(vetor, k):
+def IteratedMinkowskiSum(vetor, k):
     n = len(vetor)
     sum = max(vetor) * k
     prev = [False] * (sum + 1)
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     k = 3
     print('V = {}'.format(V))
     print('k = {}'.format(k))
-    res = MinkowskiSum(V, k)
+    res = IteratedMinkowskiSum(V, k)
     for i in range(max(V) * k + 1):
         if res[i] == True:
             print('{}'.format(i))
