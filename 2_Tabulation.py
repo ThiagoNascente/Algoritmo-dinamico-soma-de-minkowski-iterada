@@ -5,9 +5,8 @@ def MinkowskiSum(vetor, k):
     sum = max(vetor) * k
     dp = [[False] * (sum + 1) for _ in range(k)]
     
-    for i in range(sum + 1):
-        if i in vetor:
-            dp[0][i] = True
+    for i in vetor:
+        dp[0][i] = True
     for z in range(1, k):
         for i in range(0, n):
             for j in range(1, sum + 1):

@@ -1,43 +1,41 @@
 # DP para soma de minkowski iterada, modelo 1
 
-def MinkowskiSumRec(vetor, n, sum, k, pk, memo):
-    # casos base e de parada
-    
-    if sum == 0 and pk == k:
-        return True
-    if n <= 0:
-        return False
-    if k == pk:
-        return False
-    if memo[pk][sum] != -1:
-        return memo[pk][sum]
-    if vetor[n - 1] > sum:
-        memo[k][sum] = MinkowskiSumRec(vetor, n - 1, sum, k, pk, memo)
-    else:
-        memo[k][sum] = (MinkowskiSumRec(vetor, n - 1, sum, k, pk, memo) or 
-                MinkowskiSumRec(vetor, n - 1, sum - vetor[n - 1], k, pk+1, memo))
-    return memo[k][sum]
+memo = []
 
-def MinkowskiSum(vetor, sum, k):
-    n = len(vetor)
-    memo = [[-1 for _ in range(sum + 1)] for _ in range(k + 1)]
+def MinkowskiSumRec(vetor, sum, k, pk):
+    # casos base e de parada
+    if k > pk:
+        for j in range(sum+1):
+            if memo[pk-1][j] == True:
+                for i in vetor:
+                    memo[pk][i + j] = True
+        MinkowskiSumRec(vetor, sum, k, pk+1)
+    
+
+def MinkowskiSum(vetor, k):
+    global memo
+    sum = k * max(vetor)
+    memo = [[-1 for _ in range(sum + 1)] for _ in range(k)]
+    
+    for i in vetor:
+        memo[0][i] = True
     if sum > max(vetor) * k:
-        return False 
-    return MinkowskiSumRec(vetor, n, sum, k, 0, memo)
+        return
+    MinkowskiSumRec(vetor, sum, k, 1)
+
 
 if __name__ == "__main__":
     
-    vetor = [1, 3, 7]
+    V = [1, 3, 7, 11]
     k = 3
-    print('V = {}'.format(vetor))
+    print('V = {}'.format(V))
     print('k = {}'.format(k))
-    V = []
-    for i in range(1, k+1):
-        V = V + vetor
-    
-    for i in range(1, max(V)*k + 1):
-        if MinkowskiSum(V, i, k):
-            print("{}".format(i))
+
+    MinkowskiSum(V, k)
+    for i in range(max(V) * k + 1):
+        if memo[k-1][i] == True:
+            print('{}'.format(i))
+
 
     
 # Complexidade da op: O(maxV*k*k*n)

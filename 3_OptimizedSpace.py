@@ -7,9 +7,8 @@ def MinkowskiSum(vetor, k):
     curr = [False] * (sum + 1)
     aux = [False] * (sum + 1)
     
-    for i in range(sum + 1):
-        if i in vetor:
-            prev[i] = True
+    for i in vetor:
+        prev[i] = True
             
     for z in range(1, k):
         for i in range(0, n):
