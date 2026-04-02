@@ -2,14 +2,14 @@
 
 def IteratedMinkowskiSum(vetor, k):
     n = len(vetor)
-    sum = max(vetor) * k
-    dp = [[False] * (sum + 1) for _ in range(k)]
+    bigst = max(vetor) * k
+    dp = [[False] * (bigst + 1) for _ in range(k)]
     
     for i in vetor:
         dp[0][i] = True
     for z in range(1, k):
         for i in range(0, n):
-            for j in range(1, sum + 1):
+            for j in range(1, bigst + 1):
                 if dp[z-1][j] == True:
                     dp[z][j+vetor[i]] = True
     return dp

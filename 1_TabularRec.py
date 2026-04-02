@@ -2,26 +2,26 @@
 
 dp = []
 
-def Rec(vetor, sum, k, pk):
+def Rec(vetor, bigst, k, pk):
     # casos base e de parada
     if k > pk:
-        for j in range(sum+1):
+        for j in range(bigst+1):
             if dp[pk-1][j] == True:
                 for i in vetor:
                     dp[pk][i + j] = True
-        Rec(vetor, sum, k, pk+1)
+        Rec(vetor, bigst, k, pk+1)
     
 
 def IteratedMinkowskiSum(vetor, k):
     global dp
-    sum = k * max(vetor)
-    dp = [[-1 for _ in range(sum + 1)] for _ in range(k)]
+    bigst = k * max(vetor)
+    dp = [[-1 for _ in range(bigst + 1)] for _ in range(k)]
     
     for i in vetor:
         dp[0][i] = True
-    if sum > max(vetor) * k:
+    if bigst > max(vetor) * k:
         return
-    Rec(vetor, sum, k, 1)
+    Rec(vetor, bigst, k, 1)
 
 
 if __name__ == "__main__":

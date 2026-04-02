@@ -2,17 +2,17 @@
 
 def IteratedMinkowskiSum(vetor, k):
     n = len(vetor)
-    sum = max(vetor) * k
-    prev = [False] * (sum + 1)
-    curr = [False] * (sum + 1)
-    aux = [False] * (sum + 1)
+    bigst = max(vetor) * k
+    prev = [False] * (bigst + 1)
+    curr = [False] * (bigst + 1)
+    aux = [False] * (bigst + 1)
     
     for i in vetor:
         prev[i] = True
             
     for z in range(1, k):
         for i in range(0, n):
-            for j in range(1, sum + 1):
+            for j in range(1, bigst + 1):
                 if prev[j] == True:
                     curr[j+vetor[i]] = True
         prev = curr.copy()
