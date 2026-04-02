@@ -39,8 +39,8 @@ if __name__ == "__main__":
     ENTRADAS vetor, e k somas
     """
     
-    vetor = [1, 2, 3, 4, 30]
-    k = 6
+    vetor = [1, 2, 7]
+    k = 3
     
     V = []
     for i in range(1, k+1):
