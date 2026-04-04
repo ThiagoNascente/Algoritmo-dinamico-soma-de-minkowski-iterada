@@ -1,7 +1,5 @@
 # DP para soma de minkowski iterada, modelo 1
 
-dp = []
-
 def Rec(vetor, bigst, k, pk):
     # casos base e de parada
     if k > pk:
@@ -19,9 +17,8 @@ def IteratedMinkowskiSum(vetor, k):
     
     for i in vetor:
         dp[0][i] = True
-    if bigst > max(vetor) * k:
-        return
     Rec(vetor, bigst, k, 1)
+    return dp
 
 
 if __name__ == "__main__":
@@ -31,9 +28,9 @@ if __name__ == "__main__":
     print('V = {}'.format(V))
     print('k = {}'.format(k))
 
-    IteratedMinkowskiSum(V, k)
+    res = IteratedMinkowskiSum(V, k)
     for i in range(max(V) * k + 1):
-        if dp[k-1][i] == True:
+        if res[k-1][i] == True:
             print('{}'.format(i))
 
 
