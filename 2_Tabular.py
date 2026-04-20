@@ -8,8 +8,8 @@ def IteratedMinkowskiSum(vetor, k):
     for i in vetor:
         dp[0][i] = True
     for z in range(1, k):
-        for i in range(0, n):
-            for j in range(1, bigst + 1):
+        for i in range(n):
+            for j in range(bigst + 1):
                 if dp[z-1][j] == True:
                     dp[z][j+vetor[i]] = True
     return dp
